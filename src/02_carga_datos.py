@@ -77,11 +77,13 @@ def convertir_fecha_espanol(serie, nombre_columna):
             f"\n❌ Se encontraron fechas inválidas "
             f"en la columna {nombre_columna}:"
         )
+
         print(
             pd.DataFrame({
                 'Valor original': originales[invalidas]
             })
         )
+
         raise ValueError(
             f"Hay fechas inválidas en {nombre_columna}."
         )
@@ -247,7 +249,10 @@ def cargar_datos():
                     'Producto': 'IdProducto'
                 })
 
-                # Verificar claves duplicadas dentro del CSV
+                # IdPedido + IdProducto ya no forman la clave primaria.
+                # Las combinaciones repetidas son válidas y no deben
+                # detener la carga del ETL.
+
                 duplicados = df[
                     df.duplicated(
                         subset=['IdPedido', 'IdProducto'],
@@ -258,8 +263,8 @@ def cargar_datos():
                 if not duplicados.empty:
 
                     print(
-                        "\n❌ Se encontraron claves duplicadas "
-                        "dentro del archivo Detalles de Pedidos.csv:"
+                        "\n⚠️ Se encontraron combinaciones repetidas "
+                        "de IdPedido + IdProducto."
                     )
 
                     print(
@@ -276,15 +281,12 @@ def cargar_datos():
                         ].to_string(index=False)
                     )
 
-                    raise ValueError(
-                        "El archivo contiene combinaciones "
-                        "duplicadas de IdPedido + IdProducto."
-                    )
+                else:
 
-                print(
-                    "✓ No se encontraron claves duplicadas "
-                    "dentro del CSV."
-                )
+                    print(
+                        "✓ No se encontraron combinaciones repetidas "
+                        "de IdPedido + IdProducto."
+                    )
 
             # =========================
             # DETECTAR IDENTITY
@@ -307,7 +309,12 @@ def cargar_datos():
             # CARGAR DATOS
             # =========================
 
-            if tiene_identity:
+            # Solo se utiliza IDENTITY_INSERT cuando el DataFrame
+            # contiene explícitamente la columna Identity.
+            # En DetallePedidos no ocurre esto porque IdDetalle
+            # es generado automáticamente por SQL Server.
+
+            if tiene_identity and tabla != 'DetallePedidos':
 
                 with engine.begin() as conn:
 

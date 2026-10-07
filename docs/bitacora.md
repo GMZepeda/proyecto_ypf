@@ -42,6 +42,4 @@
 
 El script de alteración quedó documentado en el archivo correspondiente `alter_tablas_datafuel.sql`.
 
-Pendiente
-
-Adaptar el ETL para trabajar con la nueva estructura de DetallePedidos y verificar nuevamente la carga del CSV.
+Se ejecutó el script de alteración de DetallePedidos, reemplazando la clave primaria compuesta por IdDetalle como clave subrogada autoincremental. Posteriormente se adaptó el ETL para permitir combinaciones repetidas de IdPedido + IdProducto y delegar la generación de IdDetalle a SQL Server. La carga completa del ETL finalizó correctamente.
