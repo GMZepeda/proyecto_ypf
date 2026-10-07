@@ -1,6 +1,6 @@
 # Bitácora de Desarrollo - DATAFUEL S.A.
 
-## Sesión de Trabajo - [4-10-2026]
+## Sesión de Trabajo - 4-10-2026
 
 ### 1. Conexión a SQL Server
 * Conexión establecida desde Python mediante SQLAlchemy y `pyodbc`.
@@ -28,3 +28,20 @@
   * Detección de filas duplicadas en el CSV original que comparten la misma combinación `(IdPedido, IdProducto)` pero con distintas métricas (cantidades, totales, costos).
   * **Acción pendiente:** Inspeccionar la estructura física de la tabla con `EXEC sp_help 'DetallePedidos';` en SSMS antes de refactorizar la clave primaria o incorporar una clave subrogada (`IdDetalle`).
   
+  ## Sesión de Trabajo - 7-10-2026
+
+  ### Problema en DetallePedidos
+  El CSV contiene combinaciones repetidas de IdPedido + IdProducto, pero, luego de inspeccionar la estructura física de la tabla con `EXEC sp_help 'DetallePedidos';` se observa que en SQL Server esa combinación está definida como clave primaria.
+  Por eso, el ETL falla al intentar cargar los datos.
+
+  Tenemos que:
+  1. Modificar la estructura de DetallePedidos.
+  2. Crear un IdDetalle como clave primaria.
+  3. Mantener IdPedido e IdProducto como claves foráneas.
+  4. Luego adaptar el ETL para cargar el CSV correctamente.
+
+El script de alteración quedó documentado en el archivo correspondiente `alter_tablas_datafuel.sql`.
+
+Pendiente
+
+Adaptar el ETL para trabajar con la nueva estructura de DetallePedidos y verificar nuevamente la carga del CSV.
