@@ -471,7 +471,6 @@ ORDER BY TotalFacturado DESC;
 | 51 | Calibración de Caudalímetros de Gas | 2385 | 74270.37 |
 
 **Insight Analítico:** No existe una correlación directa entre el volumen de unidades vendidas y la facturación total generada. El producto líder en facturación ("Butano Industrial para Generadores") es el que menos unidades vendió (1794) dentro de este top 10, lo que indica un precio unitario o margen de ganancia significativamente alto. Por el contrario, el producto más vendido en volumen ("Fuel Oil para Turbinas" con 5282 unidades) ocupa el penúltimo lugar en ingresos, indicando un ticket promedio bajo.
-```eof
 
 --- 
 
