@@ -1033,8 +1033,37 @@ Se recomienda complementar este ranking con indicadores como la cantidad de pedi
 
 ---
 
-## 7. Próximas Mejoras
-* Implementación del **Modelo Estrella** optimizado para Power BI.
-* Definición formal de **KPIs de negocio** y tablero de control.
-* Creación del **Diccionario de medidas DAX**.
-* Desarrollo y despliegue del **Dashboard interactivo**.
+# Modelo Estrella para Power BI
+
+Se conecta la base de datos de SQL Server “DATAFUEL_SA” a Power BI para comenzar a diseñar el Modelo Estrella.
+
+Se importan las siguientes tablas al editor de Power BI:
+
+## Data Mart Comercial:
+
+* Dim_Empleados
+* Dim_Clientes
+* Dim_Productos
+* Dim_Categorias
+* Fact_Pedidos
+* Fact_DetallePedidos
+
+- Se verifican los tipos de datos y se eliminan las columnas agregadas automáticamente tras conectar al motor relacional de SQL Server (FK).
+
+- Se realiza un Merge (combinar consultas) entre Fact_Pedidos y Fact_DetallePedidos para unificar la cabecera y el detalle en una sola tabla de hechos principal llamada Fact_Ventas.
+
+- Se desnormaliza Dim_Categoria hacia la dimensión principal: Dim_productos.
+
+- Se crea la dimensión calendario: Dim_Calendario.
+
+## Diagrama del Modelo Estrella
+
+![Modelo Estrella](images/modelo_estrella.png)
+
+# KPIs de negocio
+
+# Diccionario de medidas DAX
+
+- Dim_Calendario: con esta medida DAX se creó la dimensión calendario necesaria para    armar el Modelo Estrella en Power BI. 
+
+# Dashboard desarrollado 
