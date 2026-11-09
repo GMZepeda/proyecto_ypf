@@ -1058,7 +1058,7 @@ Se importan las siguientes tablas al editor de Power BI:
 
 ## Diagrama del Modelo Estrella
 
-![Modelo Estrella](docs/modelo_estrella.png)
+![Modelo Estrella](modelo_estrella.png)
 
 # KPIs de negocio
 
