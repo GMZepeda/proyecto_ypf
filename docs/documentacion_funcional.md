@@ -2,11 +2,11 @@
 
 * **Versión:** 1.0
 * **Proyecto:** DATAFUEL S.A. – Data Warehouse para la enseñanza de SQL, Power BI y Data Analytics
-* **Autores (Grupo 5):**
-  * Luciana Selene Agüero Lucero
+
+* **Autores:**
   * Vanina Candelaria Sulca
   * Germán M. Zepeda
-* **Fecha:** Septiembre 2026
+
 
 ---
 
@@ -318,7 +318,7 @@ Registro histórico de intervenciones y servicio técnico sobre los equipos de l
 
 ---
 
-## 1° Pre-Entrega: Definición del Proyecto
+## Definición del Proyecto
 
 ### Área de DATAFUEL S.A. Elegida
 Se escogió el área de **Recursos Humanos**, focalizando principalmente en la gestión y rendimiento del personal comercial.
@@ -346,8 +346,6 @@ Evaluar la estructura, antigüedad y desempeño operativo del equipo de colabora
 ![Diagrama Entidad-Relación](DER_DATAFUEL_SA.png)
 
 ---
-
-# 2° Pre-Entrega
 
 ## Proceso de ETL
 
@@ -1062,8 +1060,48 @@ Se importan las siguientes tablas al editor de Power BI:
 
 # KPIs de negocio
 
+- Total Facturado: representa los ingresos monetarios brutos totales 
+generados por la compañía a lo largo de todo el período analizado. Es el 
+termómetro principal del volumen económico de DATAFUEL S.A.  
+
+- Total de Unidades Vendidas: indica el volumen físico total de 
+productos despachados. Permite evaluar la capacidad operativa y de 
+entrega física de la empresa, diferenciando si el crecimiento de 
+ingresos se debe a mayor rotación de mercadería o a variaciones de 
+precio.  
+
+- Total de Cantidad de Pedidos: mide la cantidad total de 
+transacciones u órdenes de compra individuales registradas por los 
+clientes. Sirve para medir la frecuencia de compra y el nivel de actividad 
+comercial recurrente.  
+
+- Ticket Promedio por Pedido: refleja el ingreso medio generado por 
+cada orden de compra concretada (calculado como Total Facturado ÷ 
+Cantidad de Pedidos). Es un indicador estratégico que permite detectar 
+oportunidades de venta cruzada (cross-selling) y verificar si las ventas 
+provienen de muchas operaciones pequeñas o de pedidos de mayor 
+volumen monetario. 
+
 # Diccionario de medidas DAX
 
-- Dim_Calendario: con esta medida DAX se creó la dimensión calendario necesaria para    armar el Modelo Estrella en Power BI. 
+- Dim_Calendario: con esta medida DAX se creó la dimensión calendario 
+necesaria para armar el Modelo Estrella en Power BI. La fecha no presentaba 
+nulos, duplicados ni faltantes.  
 
-# Dashboard desarrollado 
+- Total Facturado: mide el volumen monetario total de las ventas. Es el 
+indicador financiero principal para conocer los ingresos brutos de la compañía 
+y evaluar el cumplimiento de objetivos comerciales. 
+
+- Unidades Vendidas: cuantifica el volumen físico de productos 
+comercializados. Permite analizar la demanda real de inventario y rotación de 
+stock, aislando el efecto de variaciones en los precios.
+
+- Cantidad Pedidos: cuenta la cantidad de transacciones u órdenes de 
+compra únicas concretadas. Evita distorsiones por filas repetidas en el 
+detalle y sirve para medir el nivel de actividad operativa.  
+
+- Ticket Promedio: indica el valor promedio facturado por cada orden de 
+compra. Ayuda a determinar si el crecimiento en ventas proviene de compras 
+más grandes o de un mayor volúmen de órdenes. 
+
+

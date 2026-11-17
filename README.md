@@ -15,3 +15,15 @@ DATAFUEL S.A. es una empresa ficticia del sector energético diseñada para un e
 - Python (Pandas)
 - Power BI & Power Query (Lenguaje M)
 - Git & GitHub
+
+## Dashboard en Power BI
+
+El dashboard interactivo fue desarrollado en **Power BI Desktop**, utilizando como base el modelo dimensional en estrella de **DATAFUEL S.A.**
+
+Se encuentran disponibles los siguientes entregables del proyecto:
+
+- **Reporte completo en PDF:** [Ver / Descargar DATAFUEL_Dashboard.pdf](./docs/DATAFUEL_Dashboard.pdf)
+- **Archivo fuente editable (.pbix):** [Descargar DATAFUEL_Dashboard.pbix](./docs/DATAFUEL_Dashboard.pbix)
+- **Documentación funcional:** [Consultar documentacion_funcional.md](./docs/documentacion_funcional.md)
+
+> **Nota:** Debido a que no se cuenta con una suscripción a Power BI Service para publicar el informe en la web, se proporciona el reporte exportado en formato PDF, junto con el archivo fuente (.pbix), que permite abrir, explorar y modificar el dashboard localmente mediante Power BI Desktop.
