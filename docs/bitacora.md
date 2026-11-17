@@ -47,3 +47,26 @@ Se ejecutó el script de alteración de DetallePedidos, reemplazando la clave pr
 ## Sesión de Trabajo  12-10-2026
 
 **Análisis de Negocio:** Ejecución de consultas SQL para responder preguntas comerciales. Los resultados y sus respectivos insights analíticos fueron integrados exitosamente en la documentación funcional.
+
+## Sesión de Trabajo  5-11-2026
+
+**Diseño e Implementación del Modelo Dimensional:** Transformación y estructuración del modelo relacional original en un Modelo Estrella (Star Schema) optimizado para análisis en Power BI.
+
+**Descripción técnica:** 
+
+- Se consolidó la tabla de hechos central FACT_Ventas (a partir de la unión de Pedidos y DetallePedidos), conteniendo las métricas cuantitativas del negocio (cantidades, precios, descuentos y montos facturados).
+- Se definieron y conectaron las tablas dimensionales satélite: DIM_Clientes, DIM_Empleados, DIM_Productos y DIM_Calendario.
+- Se establecieron relaciones unidireccionales de 1 a varios ($1:\infty$) con filtro cruzado único desde cada dimensión hacia la tabla de hechos, garantizando integridad referencial, consistencia en los filtros cruzados y un rendimiento analítico óptimo en DAX.
+
+## Sesión de Trabajo  14-11-2026
+
+**Creación de Medidas DAX y Configuración de KPIs Ejecutivos:** Implementación de la tabla técnica *Medidas* y construcción del bloque superior de indicadores clave de rendimiento (KPIs) en Power BI.
+
+**Descripción técnica:**
+- Se formularon en DAX las métricas principales del negocio: Total Facturado (SUM), Unidades Vendidas (SUM), Cantidad Pedidos (DISTINCTCOUNT) y Ticket Promedio (DIVIDE).
+- Se maquetó la primera fila de tarjetas KPI en el lienzo, aplicando validación de datos cruzada contra consultas SQL previas ($2,46M facturados, 141.636 unidades, 4.612 pedidos y $533,87 de ticket medio).
+- Se ajustó el formato de visualización (Callouts / Valores ➔ Mostrar unidades: Ninguno) para evitar el redondeo automático y exponer valores exactos requeridos por la gerencia.
+
+## Sesión de Trabajo  15-11-2026
+
+**Creación y Configuración del Dashboard:** Construcción de las solapas, configuración de visualizaciones e interacciones, y definición formal de KPIs.
